@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= restaurant.name %></title>
+</head>
+<body>
+    <%- include('../partials/navbar') %>
+    <h1><%= restaurant.name %></h1>
+    <p><%= restaurant.isOpen ? 'Open' : 'Closed' %></p>
+    <p>Address: <%= restaurant.address %></p>
+    <p>Phone: <%= restaurant.phone %></p>
+    <h2>Menu</h2>
+    <ul>
+        <% for (const item of restaurant.menu) { %>
+            <li>
+                <%= item.name %> — BHD <%= item.price.toFixed(3) %>
+                (Rating: <%= item.rating %>/5)
+            </li>
+        <% } %>
+    </ul>
+</body>
+</html>
